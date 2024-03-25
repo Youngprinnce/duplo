@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, Matches, MaxLength, MinLength, IsEmail } from 'class-validator';
+import { IsString, Matches, MaxLength, MinLength, IsEmail, IsUUID } from 'class-validator';
 
 export class CreateUserDto {
-  @IsString()
-  @ApiProperty({type: String, description: 'The business ID.'})
+  @IsUUID("4")
+  @ApiProperty({ type: String, description: 'The business ID.' })
   businessId: string;
 
   @IsEmail()

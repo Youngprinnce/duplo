@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { Injectable } from "@nestjs/common";
+import { Injectable, InternalServerErrorException } from "@nestjs/common";
 import { Order } from "../orders/entities/order.entity";
 import { Transaction } from "./schemas/transaction.schema";
 import { TransactionRepository } from "./transaction.repository";
@@ -9,14 +9,18 @@ export class TransactionService {
     constructor(private readonly transactionRepository: TransactionRepository) {}
 
     async createTransaction(order: Order): Promise<Transaction> {
-        return this.transactionRepository.create({
-            amount: order.total,
-            date: new Date(),
-            orderID: order.id,
-            _id: uuidv4(),
-            businessId: order.businessId,
-            customerID: order.createdById,
-        })
+        try {
+            return this.transactionRepository.create({
+                amount: order.total,
+                date: new Date(),
+                orderID: order.id,
+                _id: uuidv4(),
+                businessId: order.businessId,
+                customerID: order.createdById,
+            })
+        } catch (error) {
+            throw new InternalServerErrorException('An error occurred while trying to create the transaction');
+        }
     }
 
     async getCreditScore(businessId: string)  {

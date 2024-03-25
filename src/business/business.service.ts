@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { EntityManager, Repository } from 'typeorm';
 import { Business } from './entities/business.entity';
@@ -13,13 +13,21 @@ export class BusinessService {
   ) {}
 
     async createBusiness(createBusinessDto: CreateBusinessDto): Promise<Business> {
-      const { name } = createBusinessDto;
-      const business = new Business({ name });
-      await this.entityManager.save(business);
-      return business;
+      try {
+        const { name } = createBusinessDto;
+        const business = new Business({ name });
+        await this.entityManager.save(business);
+        return business;
+      } catch (error) {
+        throw new InternalServerErrorException('An error occurred while trying to create the business');
+      }
     }
 
     async getBusinessById(id: string): Promise<Business> {
-      return this.businessRepository.findOne({ where: { id }})
+      try {
+        return this.businessRepository.findOne({ where: { id }})
+      } catch (error) {
+        throw new InternalServerErrorException('An error occurred while trying to get the business');
+      }
     }
 }
