@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Injectable } from "@nestjs/common";
-import { Order } from "./orders/entities/order.entity";
+import { Order } from "../orders/entities/order.entity";
 import { Transaction } from "./schemas/transaction.schema";
 import { TransactionRepository } from "./transaction.repository";
 
