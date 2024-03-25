@@ -1,13 +1,13 @@
 import { Module } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
-import { AppController } from "./app.controller";
-import { UserModule } from "./users/user.module";
-import { DatabaseModule } from "./database/database.module";
-import { BusinessModule } from "./business/business.module";
-import { TransactionModule } from "./transactions/transaction.module";
-import { OrderModule } from "./orders/order.module";
-import { OrderQueueModule } from "./orderQueue/order-queue.module";
 import { BullModule } from "@nestjs/bull";
+import { ConfigModule } from "@nestjs/config";
+import { UserModule } from "./users/user.module";
+import { AppController } from "./app.controller";
+import { OrderModule } from "./orders/order.module";
+import { BusinessModule } from "./business/business.module";
+import { DatabaseModule } from "./database/database.module";
+import { OrderQueueModule } from "./orderQueue/order-queue.module";
+import { TransactionModule } from "./transactions/transaction.module";
 @Module({
   imports: [
     UserModule,
@@ -19,7 +19,7 @@ import { BullModule } from "@nestjs/bull";
     ConfigModule.forRoot({ isGlobal: true }),
     BullModule.forRoot({
       redis: {
-        host: "redis",
+        host: "localhost",
         port: 6379,
       },
     })
