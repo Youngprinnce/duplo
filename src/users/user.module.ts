@@ -17,9 +17,9 @@ import { BusinessModule } from 'src/business/business.module';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
-        secret: 'secret',
+        secret: configService.get('JWT_SECRET'),
         signOptions: {
-          expiresIn: 3600,
+          expiresIn: configService.get('JWT_EXPIRES_IN'),
         },
       }),
     }),

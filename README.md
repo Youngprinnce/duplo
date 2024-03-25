@@ -15,8 +15,25 @@
 ## Installation & How to run locally
 - Make sure to have [Docker](https://www.docker.com/get-started/) installed on your local machine
 - On your desktop terminal run command ```git clone https://github.com/Youngprinnce/duplo.git```
-- Create .env file in the project root directory and mirror .env.example files with your details
+- Chnage ```.env.example ``` file in the project root directory to ```.env```
 - Run command ``docker-compose up``` to run application
 
 ## NOTE
-- Follow API Endpoints above to be able to test application accordingly
+- You can access the API documentation via [swagger docs](http://localhost:3000/api-docs#/)
+- You should create a business first before creating a department head (user)
+- To create a business, you can use the following payload
+```
+{
+    "name": "Business Name"
+}
+```
+```
+- To create a department head (user), you can use the following payload
+```
+{
+    "email": "hello@gmail.com",
+    "password": "Password1!",
+    "businessId": "businessId",
+    "name": "John Doe",
+}
+```

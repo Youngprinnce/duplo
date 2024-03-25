@@ -25,7 +25,7 @@ export class TransactionService {
         const totalAmount = transactions.reduce((acc, transaction) => acc + transaction.amount, 0);
         const totalTransactions = transactions.length;
 
-        const creditScore = totalAmount / (totalTransactions);
+        const creditScore = totalAmount / (totalTransactions * 100);
         return { creditScore: parseFloat(creditScore.toFixed(2)) };
     }
 }

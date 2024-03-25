@@ -5,12 +5,10 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { Order } from "./entities/order.entity";
 import { UserModule } from "src/users/user.module";
 import { OrderController } from "./order.controller";
-import { TransactionModule } from "src/transactions/transaction.module";
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Order]),
-    TransactionModule,
     UserModule,
     BullModule.registerQueue({
       name: "order",

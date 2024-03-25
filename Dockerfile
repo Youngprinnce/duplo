@@ -1,22 +1,7 @@
-FROM node:18-alpine
-
-# Set working directory
+# Build stage
+FROM node:18-alpine as builder
 WORKDIR /usr/src/app
-
-# Install NestJS globally
-RUN npm install -g @nestjs/cli
-
-# Copy package.json and package-lock.json to working directory
 COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy source code to working directory
+RUN npm ci
 COPY . .
-
-# Expose the default port for the NestJS application
-EXPOSE 3000
-
-# Start the NestJS application in development mode
-CMD ["npm", "run", "start:dev"]
+RUN npm run build
