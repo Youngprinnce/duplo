@@ -14,8 +14,8 @@
 
 ## Installation & How to run locally
 - Make sure to have [Docker](https://www.docker.com/get-started/) installed on your local machine
-- On your desktop terminal run command ```git clone https://github.com/Youngprinnce/duplo.git```
-- Chnage ```.env.example ``` file in the project root directory to ```.env```
+- On your desktop terminal run the command ```git clone https://github.com/Youngprinnce/duplo.git```
+- In the project folder, Change ```.env.example ``` file in the project root directory to ```.env```
 - Run command ``docker-compose up``` to run application
 
 ## NOTE
@@ -27,13 +27,13 @@
     "name": "Business Name"
 }
 ```
-```
 - To create a department head (user), you can use the following payload
+
 ```
 {
     "email": "hello@gmail.com",
     "password": "Password1!",
     "businessId": "businessId",
-    "name": "John Doe",
+    "name": "John Doe"
 }
 ```
