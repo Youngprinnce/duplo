@@ -37,3 +37,4 @@
     "name": "John Doe"
 }
 ```
+- When creating an order, productId can be any positive integer
