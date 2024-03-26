@@ -10,7 +10,7 @@
 * POST Login                                        (/user/signin)
 * POST Create Order                                 (/orders)                      Authenticated
 * GET Get Business Order Details                    (/orders/get-order-details)    Authenticated
-* GET Get Business Credit Score                     (/orders/get-credit-score)     Authenticated
+* GET Get Business Credit Score                     (/business/get-credit-score)     Authenticated
 
 ## Installation & How to run locally
 - Make sure to have [Docker](https://www.docker.com/get-started/) installed on your local machine
