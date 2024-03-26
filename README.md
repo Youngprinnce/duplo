@@ -16,6 +16,7 @@
 - Make sure to have [Docker](https://www.docker.com/get-started/) installed on your local machine
 - On your desktop terminal run the command ```git clone https://github.com/Youngprinnce/duplo.git```
 - In the project folder, Change ```.env.example ``` file in the project root directory to ```.env```
+- Replace the database username and password, and also create the database name too.
 - Run command ```npm install``` to download project dependencies
 - Run command ```docker-compose up``` to run application
 
